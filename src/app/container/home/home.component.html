@@ -1,0 +1,8 @@
+<h2>The Toy Robot</h2>
+
+<app-playable-area [rows]="rows" [currentPosition]="currentPosition" [currentFacing]="currentFacing"
+  [isPlacing]="isPlacing" (squareSelected)="squareSelected($event)"></app-playable-area>
+
+<app-commands [currentPosition]="currentPosition" [currentFacing]="currentFacing" [isPlacing]="isPlacing"
+  [isReporting]="isReporting" [size]="size" (command)="command($event)" (squareSelected)="squareSelected($event)">
+</app-commands>

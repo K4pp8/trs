@@ -1,0 +1,41 @@
+<h4 class="title">Commands</h4>
+
+<button class="button" (click)="command.emit('Place')"
+    title="Put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST">Place</button>
+<button class="button" [disabled]="isPlacing" (click)="command.emit('Move')"
+    title="Move the toy robot one unit forward in the direction it is currently facing">Move</button>
+<button class="button" [disabled]="isPlacing" (click)="command.emit('Left')"
+    title="Rotate the robot 90 degrees in the specified direction without changing the position of the robot">Left</button>
+<button class="button" [disabled]="isPlacing" (click)="command.emit('Right')"
+    title="Rotate the robot -90 degrees in the specified direction without changing the position of the robot">Right</button>
+<button class="button" [disabled]="isPlacing" (click)="command.emit('Report')"
+    title="Show the X,Y and F of the robot">Report</button>
+
+<div class="infoArea" *ngIf="isPlacing || isReporting">
+
+    <div *ngIf="isPlacing">
+        <form [formGroup]="placingForm" class="form">
+            <div class="formItem">
+                <label for="x">X*: </label>
+                <input id="x" type="number" formControlName="x">
+            </div>
+            <div class="formItem">
+                <label for="y">Y*: </label>
+                <input id="y" type="number" formControlName="y">
+            </div>
+            <div class="formItem">
+                <label for="facing">Facing: </label>
+                <select id="country" formControlName="facing">
+                    <option *ngFor="let f of ['NORTH', 'SOUTH', 'EAST', 'WEST']" [value]="f">{{ f }}</option>
+                </select>
+            </div>
+
+            <button class="button submit" type="button" (click)="submit()">Place the roboto</button>
+        </form>
+        <p *ngIf="placingForm.status === 'INVALID'">
+            Please enter something from 0 to {{size}} in X and Y
+        </p>
+    </div>
+    <p *ngIf="isReporting" class="reporting">The Robot has X:{{currentPosition?.x}}, Y:{{currentPosition?.y}} and
+        Facing:{{currentFacing}}</p>
+</div>

@@ -1,0 +1,33 @@
+.title {
+    margin-bottom: 0;
+}
+
+.button {
+    margin: 8px 8px 8px 0;
+    width: 80px;
+}
+
+.infoArea {
+    background-color: lightgray;
+    margin: 4px 0;
+    padding: 8px;
+    width: 416px;
+}
+
+.formItem {
+    label {
+        width: 60px;
+        display: inline-block;
+        text-align: right;
+    }
+
+    input {
+        width: 80px;
+    }
+
+    margin: 8px;
+}
+
+.submit {
+    margin-left: 70px;
+}

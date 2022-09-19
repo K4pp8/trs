@@ -1,0 +1,35 @@
+.rows {
+    display: flex;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    border: solid 1px grey;
+}
+
+.playableArea {
+    position: relative;
+}
+
+.isPlacing {
+    cursor: pointer;
+    background-color: bisque;
+    animation-name: color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes color {
+    0% {
+        background-color: bisque;
+    }
+
+    50% {
+        background-color: lightcoral;
+    }
+
+    100% {
+        background-color: bisque;
+    }
+}

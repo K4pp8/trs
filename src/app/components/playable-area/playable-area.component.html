@@ -1,0 +1,8 @@
+<div class="playableArea">
+    <div *ngFor="let squares of rows" class="rows">
+        <div *ngFor="let square of squares" (click)="squareSelected.emit(square)" class="square"
+            [class.isPlacing]="isPlacing">
+        </div>
+    </div>
+    <app-robot [currentPosition]="currentPosition" [currentFacing]="currentFacing"></app-robot>
+</div>
